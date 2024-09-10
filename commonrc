@@ -1,0 +1,23 @@
+# Path
+export PATH=".:$HOME/bin:$HOME/.local/bin:/usr/local/sbin:/usr/local/bin:$PATH"
+
+# nvim
+# alias vim="nvim"
+# alias vi="nvim"
+
+#screen
+alias sls="screen -ls"
+alias sr="screen -x"
+# alias ss='screen -t $1 -S $1'
+
+#mosh
+export LC_ALL='en_US.UTF-8'
+export LANG='en_US.UTF-8'
+export MM_CHARSET='UTF-8'
+
+# export EXT_PATH=~/.bashrc_extensions
+# for filename in "$EXT_PATH"/*; do
+#     # shellcheck source=/dev/null
+#     . "$filename"
+#     echo "loaded $filename"
+# done
