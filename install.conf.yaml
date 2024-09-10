@@ -1,0 +1,36 @@
+- defaults:
+    link:
+      relink: true
+      create: true
+
+- clean: ['~']
+
+- link:
+    ~/.bash_profile:
+    ~/.bashrc:
+    ~/.bashrc_extensions:
+    ~/.vimrc:
+    ~/.vim:
+    ~/.config/nvim: nvim
+    ~/.zshrc:
+    ~/.p10k.zsh:
+
+- shell:
+  - command: |
+      [[ ! -d "$HOME/.oh-my-zsh" ]] && \
+        sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" && \
+        mv -f $HOME/.zshrc.pre-oh-my-zsh $HOME/.zshrc || \
+        echo "oh-my-zsh already installed"
+    stdout: true
+  - command: |
+      [[ ! -d "$HOME/.oh-my-zsh/custom/themes/powerlevel10k" ]] && \
+        git clone https://github.com/romkatv/powerlevel10k.git $HOME/.oh-my-zsh/custom/themes/powerlevel10k || \
+        echo "p10k already installed"
+    stdout: true
+  - command: |
+      [[ ! -d "$HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions" ]] && \
+        git clone https://github.com/zsh-users/zsh-autosuggestions "$HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions" || \
+        echo "zsh-autosuggestions already installed"
+    stdout: true
+  - command: vim +PlugInstall! +qall
+    stdout: true
